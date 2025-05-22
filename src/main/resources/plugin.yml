@@ -1,0 +1,6 @@
+name: FriendCorePlugin
+version: '${project.version}'
+main: friends.friendcoreplugin.FriendCorePlugin
+api-version: '1.21.1'
+authors: [schottler3]
+description: Core functionality of Friends Server
