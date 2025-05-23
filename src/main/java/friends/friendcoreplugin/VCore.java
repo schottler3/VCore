@@ -1,18 +1,18 @@
-package friends.friendcoreplugin;
+package V.VCore;
 
-import friends.friendcoreplugin.commands.*;
-import friends.friendcoreplugin.utils.CommandList;
-import friends.friendcoreplugin.utils.Msg;
-import friends.friendcoreplugin.utils.GUIStuff;
-import friends.friendcoreplugin.utils.VoteUtils;
+import V.VCore.commands.*;
+import V.VCore.utils.CommandList;
+import V.VCore.utils.Msg;
+import V.VCore.utils.GUIStuff;
+import V.VCore.utils.VoteUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitRunnable;
 
-public final class FriendCorePlugin extends JavaPlugin {
+public final class VCore extends JavaPlugin {
 
-    private static FriendCorePlugin instance;
+    private static VCore instance;
 
     @Override
     public void onEnable() {
@@ -28,17 +28,17 @@ public final class FriendCorePlugin extends JavaPlugin {
         new Elevator();
         new CommandList();
 
-        sudoBroadcast("FriendCorePlugin enabled");
+        sudoBroadcast("VCore enabled");
         
     }
 
     @Override
     public void onDisable() {
         // Plugin shutdown logic
-        sudoBroadcast("FriendCorePlugin disabled");
+        sudoBroadcast("VCore disabled");
     }
 
-    public static FriendCorePlugin getInstance() {
+    public static VCore getInstance() {
         return instance;
     }
 
@@ -56,7 +56,7 @@ public final class FriendCorePlugin extends JavaPlugin {
                 }
                 remainingTime--;
             }
-        }.runTaskTimer(FriendCorePlugin.getInstance(), 0L, 20L);
+        }.runTaskTimer(VCore.getInstance(), 0L, 20L);
     }
 
     public static void sudoBroadcast(String message){
@@ -66,7 +66,7 @@ public final class FriendCorePlugin extends JavaPlugin {
     }
 
     public static void throwError(String message){
-        FriendCorePlugin.getInstance().getLogger().severe("Error: " + message);
+        VCore.getInstance().getLogger().severe("Error: " + message);
         sudoBroadcast(message);
     }
 

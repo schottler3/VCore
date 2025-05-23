@@ -1,4 +1,4 @@
-package friends.friendcoreplugin.utils;
+package V.VCore.utils;
 
 import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;

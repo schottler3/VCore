@@ -1,7 +1,7 @@
-package friends.friendcoreplugin.commands;
+package V.VCore.commands;
 
-import friends.friendcoreplugin.utils.CommandBase;
-import friends.friendcoreplugin.utils.VoteUtils;
+import V.VCore.utils.CommandBase;
+import V.VCore.utils.VoteUtils;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;

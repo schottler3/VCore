@@ -1,8 +1,8 @@
-package friends.friendcoreplugin.utils;
-import friends.friendcoreplugin.utils.GUIStuff;
-import friends.friendcoreplugin.utils.Items;
+package V.VCore.utils;
+import V.VCore.utils.GUIStuff;
+import V.VCore.utils.Items;
 
-import friends.friendcoreplugin.FriendCorePlugin;
+import V.VCore.VCore;
 import org.bukkit.Bukkit;
 import org.bukkit.Difficulty;
 import org.bukkit.NamespacedKey;
@@ -26,12 +26,12 @@ public class VoteUtils implements Listener {
     private static double superMajority = .66;
     private static Server server;
     private static Inventory voteCenter;
-    private static FriendCorePlugin instance;
+    private static VCore instance;
 
     public VoteUtils(){
-        server =  FriendCorePlugin.getInstance().getServer();
-        instance = FriendCorePlugin.getInstance();
-        Bukkit.getPluginManager().registerEvents(this, FriendCorePlugin.getInstance());
+        server =  VCore.getInstance().getServer();
+        instance = VCore.getInstance();
+        Bukkit.getPluginManager().registerEvents(this, VCore.getInstance());
         setupVoteCenter();
     }
 
@@ -43,7 +43,7 @@ public class VoteUtils implements Listener {
             instance.sudoBroadcast("&aWeather voted to clear!");
             server.getWorlds().get(0).setStorm(false);
             for(Player p : server.getOnlinePlayers()){
-                p.getPersistentDataContainer().set(new NamespacedKey(FriendCorePlugin.getInstance(), "weatherVote"), PersistentDataType.BOOLEAN, false);
+                p.getPersistentDataContainer().set(new NamespacedKey(VCore.getInstance(), "weatherVote"), PersistentDataType.BOOLEAN, false);
             }
         }
     }
@@ -56,7 +56,7 @@ public class VoteUtils implements Listener {
             instance.sudoBroadcast("&aDifficulty voted to normal!");
             server.getWorlds().get(0).setDifficulty(Difficulty.NORMAL);
             for(Player p : server.getOnlinePlayers()){
-                p.getPersistentDataContainer().set(new NamespacedKey(FriendCorePlugin.getInstance(), "normalVote"), PersistentDataType.BOOLEAN, false);
+                p.getPersistentDataContainer().set(new NamespacedKey(VCore.getInstance(), "normalVote"), PersistentDataType.BOOLEAN, false);
             }
         }
     }
@@ -69,7 +69,7 @@ public class VoteUtils implements Listener {
             instance.sudoBroadcast("&aDifficulty voted to hard!");
             server.getWorlds().get(0).setDifficulty(Difficulty.HARD);
             for(Player p : server.getOnlinePlayers()){
-                p.getPersistentDataContainer().set(new NamespacedKey(FriendCorePlugin.getInstance(), "hardVote"), PersistentDataType.BOOLEAN, false);
+                p.getPersistentDataContainer().set(new NamespacedKey(VCore.getInstance(), "hardVote"), PersistentDataType.BOOLEAN, false);
             }
         }
     }
@@ -81,9 +81,9 @@ public class VoteUtils implements Listener {
             instance.sudoBroadcast("&aServer restart in 1min!");
             voteRestart = 0;
             for(Player p : server.getOnlinePlayers()){
-                p.getPersistentDataContainer().set(new NamespacedKey(FriendCorePlugin.getInstance(), "restartVote"), PersistentDataType.BOOLEAN, false);
+                p.getPersistentDataContainer().set(new NamespacedKey(VCore.getInstance(), "restartVote"), PersistentDataType.BOOLEAN, false);
             }
-            FriendCorePlugin.getInstance().restartSeq(60);
+            VCore.getInstance().restartSeq(60);
 
         }
     }
@@ -118,7 +118,7 @@ public class VoteUtils implements Listener {
 
     public static double getPercent(int players){
         try {
-            return (((double) players) / ((double) FriendCorePlugin.getInstance().getServer().getOnlinePlayers().size()));
+            return (((double) players) / ((double) VCore.getInstance().getServer().getOnlinePlayers().size()));
         } catch(Exception e) {
             return 0;
         }
@@ -143,21 +143,21 @@ public class VoteUtils implements Listener {
     public void onLeave(PlayerQuitEvent event){
         Player player = event.getPlayer();
         PersistentDataContainer playerData = player.getPersistentDataContainer();
-        if(Boolean.TRUE.equals(playerData.get(new NamespacedKey(FriendCorePlugin.getInstance(), "weatherVote"), PersistentDataType.BOOLEAN))){
+        if(Boolean.TRUE.equals(playerData.get(new NamespacedKey(VCore.getInstance(), "weatherVote"), PersistentDataType.BOOLEAN))){
             decrementWeather();
-            playerData.set(new NamespacedKey(FriendCorePlugin.getInstance(), "weatherVote"), PersistentDataType.BOOLEAN, false);
+            playerData.set(new NamespacedKey(VCore.getInstance(), "weatherVote"), PersistentDataType.BOOLEAN, false);
         }
-        if(Boolean.TRUE.equals(playerData.get(new NamespacedKey(FriendCorePlugin.getInstance(), "normalVote"), PersistentDataType.BOOLEAN))){
+        if(Boolean.TRUE.equals(playerData.get(new NamespacedKey(VCore.getInstance(), "normalVote"), PersistentDataType.BOOLEAN))){
             decrementNormal();
-            playerData.set(new NamespacedKey(FriendCorePlugin.getInstance(), "normalVote"), PersistentDataType.BOOLEAN, false);
+            playerData.set(new NamespacedKey(VCore.getInstance(), "normalVote"), PersistentDataType.BOOLEAN, false);
         }
-        if(Boolean.TRUE.equals(playerData.get(new NamespacedKey(FriendCorePlugin.getInstance(), "hardVote"), PersistentDataType.BOOLEAN))){
+        if(Boolean.TRUE.equals(playerData.get(new NamespacedKey(VCore.getInstance(), "hardVote"), PersistentDataType.BOOLEAN))){
             decrementHard();
-            playerData.set(new NamespacedKey(FriendCorePlugin.getInstance(), "hardVote"), PersistentDataType.BOOLEAN, false);
+            playerData.set(new NamespacedKey(VCore.getInstance(), "hardVote"), PersistentDataType.BOOLEAN, false);
         }
-        if(Boolean.TRUE.equals(playerData.get(new NamespacedKey(FriendCorePlugin.getInstance(), "restartVote"), PersistentDataType.BOOLEAN))){
+        if(Boolean.TRUE.equals(playerData.get(new NamespacedKey(VCore.getInstance(), "restartVote"), PersistentDataType.BOOLEAN))){
             decrementRestart();
-            playerData.set(new NamespacedKey(FriendCorePlugin.getInstance(), "restartVote"), PersistentDataType.BOOLEAN, false);
+            playerData.set(new NamespacedKey(VCore.getInstance(), "restartVote"), PersistentDataType.BOOLEAN, false);
         }
     }
 }

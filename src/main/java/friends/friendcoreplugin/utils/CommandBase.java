@@ -1,6 +1,6 @@
-package friends.friendcoreplugin.utils;
+package V.VCore.utils;
 
-import friends.friendcoreplugin.FriendCorePlugin;
+import V.VCore.VCore;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -48,7 +48,7 @@ public abstract class CommandBase extends BukkitCommand implements CommandExecut
         CommandMap commandMap = getCommandMap();
         if(commandMap != null){
             // Modified line - add your plugin name as prefix
-            commandMap.register("friendcore", this);
+            commandMap.register("VCore", this);
         }
     }
 
@@ -104,7 +104,7 @@ public abstract class CommandBase extends BukkitCommand implements CommandExecut
             }
 
             delayedPlayers.add(player.getName());
-            Bukkit.getScheduler().scheduleSyncDelayedTask(FriendCorePlugin.getInstance(), () -> {
+            Bukkit.getScheduler().scheduleSyncDelayedTask(VCore.getInstance(), () -> {
                 delayedPlayers.remove(player.getName());
             }, 20L * delay);
         }

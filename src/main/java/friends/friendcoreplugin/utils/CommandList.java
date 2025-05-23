@@ -1,9 +1,9 @@
-package friends.friendcoreplugin.utils;
+package V.VCore.utils;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import friends.friendcoreplugin.FriendCorePlugin;
+import V.VCore.VCore;
 import org.bukkit.Bukkit;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -16,7 +16,7 @@ import java.util.Map;
 public class CommandList implements Listener {
 
     public CommandList(){
-        Bukkit.getPluginManager().registerEvents(this, FriendCorePlugin.getInstance());
+        Bukkit.getPluginManager().registerEvents(this, VCore.getInstance());
     }
 
     @EventHandler

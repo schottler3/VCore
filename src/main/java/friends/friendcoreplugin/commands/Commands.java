@@ -1,11 +1,11 @@
-package friends.friendcoreplugin.commands;
+package V.VCore.commands;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import friends.friendcoreplugin.utils.CommandBase;
-import friends.friendcoreplugin.utils.Json;
-import friends.friendcoreplugin.utils.Msg;
+import V.VCore.utils.CommandBase;
+import V.VCore.utils.Json;
+import V.VCore.utils.Msg;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 

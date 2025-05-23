@@ -1,10 +1,10 @@
-package friends.friendcoreplugin.utils;
+package V.VCore.utils;
 
 import com.earth2me.essentials.api.Economy;
-import friends.friendcoreplugin.*;
-import friends.friendcoreplugin.utils.Msg;
-import friends.friendcoreplugin.utils.Items;
-import friends.friendcoreplugin.utils.VoteUtils;
+import V.VCore.*;
+import V.VCore.utils.Msg;
+import V.VCore.utils.Items;
+import V.VCore.utils.VoteUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -25,7 +25,7 @@ import java.util.Objects;
 public class GUIStuff implements Listener {
 
     public GUIStuff(){
-        Bukkit.getPluginManager().registerEvents(this, FriendCorePlugin.getInstance());
+        Bukkit.getPluginManager().registerEvents(this, VCore.getInstance());
     }
 
     public static ItemStack[] populateGUI(int size){
@@ -68,7 +68,7 @@ public class GUIStuff implements Listener {
                     PersistentDataContainer playerData = player.getPersistentDataContainer();
 
                     if (Objects.equals(data.get(Items.getItemKey(), PersistentDataType.STRING), "weather")) {
-                        NamespacedKey weatherKey = new NamespacedKey(FriendCorePlugin.getInstance(), "weatherVote");
+                        NamespacedKey weatherKey = new NamespacedKey(VCore.getInstance(), "weatherVote");
 
                         if (playerData.get(weatherKey, PersistentDataType.BOOLEAN) != null && Boolean.TRUE.equals(playerData.get(weatherKey, PersistentDataType.BOOLEAN))) {
                             VoteUtils.decrementWeather();
@@ -78,7 +78,7 @@ public class GUIStuff implements Listener {
                             VoteUtils.incrementWeather();
                         }
                     } else if (Objects.equals(data.get(Items.getItemKey(), PersistentDataType.STRING), "normal")) {
-                        NamespacedKey normalKey = new NamespacedKey(FriendCorePlugin.getInstance(), "normalVote");
+                        NamespacedKey normalKey = new NamespacedKey(VCore.getInstance(), "normalVote");
                         if (playerData.get(normalKey, PersistentDataType.BOOLEAN) != null && Boolean.TRUE.equals(playerData.get(normalKey, PersistentDataType.BOOLEAN))) {
                             VoteUtils.decrementNormal();
                             playerData.set(normalKey, PersistentDataType.BOOLEAN, false);
@@ -87,7 +87,7 @@ public class GUIStuff implements Listener {
                             VoteUtils.incrementNormal();
                         }
                     } else if (Objects.equals(data.get(Items.getItemKey(), PersistentDataType.STRING), "hard")) {
-                        NamespacedKey hardKey = new NamespacedKey(FriendCorePlugin.getInstance(), "hardVote");
+                        NamespacedKey hardKey = new NamespacedKey(VCore.getInstance(), "hardVote");
                         if (playerData.get(hardKey, PersistentDataType.BOOLEAN) != null && Boolean.TRUE.equals(playerData.get(hardKey, PersistentDataType.BOOLEAN))) {
                             VoteUtils.decrementHard();
                             playerData.set(hardKey, PersistentDataType.BOOLEAN, false);
@@ -96,7 +96,7 @@ public class GUIStuff implements Listener {
                             VoteUtils.incrementHard();
                         }
                     } else if (Objects.equals(data.get(Items.getItemKey(), PersistentDataType.STRING), "restart")) {
-                        NamespacedKey restartKey = new NamespacedKey(FriendCorePlugin.getInstance(), "restartVote");
+                        NamespacedKey restartKey = new NamespacedKey(VCore.getInstance(), "restartVote");
                         if (playerData.get(restartKey, PersistentDataType.BOOLEAN) != null && Boolean.TRUE.equals(playerData.get(restartKey, PersistentDataType.BOOLEAN))) {
                             VoteUtils.decrementRestart();
                             playerData.set(restartKey, PersistentDataType.BOOLEAN, false);

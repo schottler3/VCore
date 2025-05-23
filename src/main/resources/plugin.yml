@@ -1,6 +1,6 @@
-name: FriendCorePlugin
+name: VCore
 version: '${project.version}'
-main: friends.friendcoreplugin.FriendCorePlugin
-api-version: '1.21.1'
+main: V.VCore.VCore
+api-version: '1.21.5'
 authors: [schottler3]
-description: Core functionality of Friends Server
+description: Core functionality of FriendsV Server

@@ -1,6 +1,6 @@
-package friends.friendcoreplugin;
+package V.VCore;
 
-import friends.friendcoreplugin.utils.Msg;
+import V.VCore.utils.Msg;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -15,7 +15,7 @@ public class Elevator implements Listener {
     public int maxCheck = 32;
 
     public Elevator(){
-        Bukkit.getPluginManager().registerEvents(this, FriendCorePlugin.getInstance());
+        Bukkit.getPluginManager().registerEvents(this, VCore.getInstance());
     }
 
     @EventHandler

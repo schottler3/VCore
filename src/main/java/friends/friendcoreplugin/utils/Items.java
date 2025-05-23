@@ -1,6 +1,6 @@
-package friends.friendcoreplugin.utils;
+package V.VCore.utils;
 
-import friends.friendcoreplugin.FriendCorePlugin;
+import V.VCore.VCore;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -25,7 +25,7 @@ public class Items {
     }
 
     public static NamespacedKey getItemKey(){
-        return new NamespacedKey(FriendCorePlugin.getInstance(), "item");
+        return new NamespacedKey(VCore.getInstance(), "item");
     }
 
     public static ItemStack[] getVoteItems(){
