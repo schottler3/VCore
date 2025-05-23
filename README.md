@@ -1,2 +1,2 @@
-# FriendCore
-Minecraft server development side project for fun :)
+# VCore
+Minecraft plugin to complement others.
